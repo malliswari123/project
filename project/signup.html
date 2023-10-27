@@ -1,0 +1,308 @@
+<html lang="en">
+<head>
+  <title>signup</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+body{background-image:url("/home/teja/Downloads/360_F_365591579_6c8Sv98dlTItb5siRbvitiST3oPP8Ga5.jpg");
+background-size:cover;
+height:100vh;
+background-position:center;
+border:10px solid rgb(169, 231, 252);
+padding:10px;
+}
+
+.wrapper {
+  position: relative;
+  width: 500px;
+  height: 580px;
+  background: transparent;
+  border:2px solid rgba(255,255,255,.5);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 30px rgba(0,0,0,.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  
+}
+
+.wrapper .form-box{
+width: 100%;
+padding: 40px;
+}
+
+.wrapper .icon-close{
+  position: absolute;
+  top:0;
+  right: 0;
+  width:45px;
+  background: #162938;
+  height:45px;
+  color:white;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  cursor:pointer;
+  z-index: 1;
+}
+
+
+.form-box h2 {
+  font-size: 2em;
+  color:#162938;
+  text-align:center;
+  padding-top:10px;
+}
+
+.input-box{
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid #162938;
+  margin: 30px 0;
+}
+
+.input-box label{
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color:#162938;
+  font-weight: 500;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+  top:-5px
+}
+
+.input-box input{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline:none;
+  font-size: 1.2em;
+  color: #162938;
+  font-weight: 600;
+  padding:0 35px 0 5px
+}
+
+.input-box .icon{
+  position:absolute;
+  right: 8px;
+  font-size: 1.9em;
+  color: #162938;
+  line-height: 57px;
+}
+
+.remember-forgot{
+  font-size: 1.0em;
+  color: #162938;
+  font-weight: 500;
+  margin: -15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember-forgot label input{
+  accent-color:#162938;
+  margin-right: 3px;
+}
+
+.remember-forgot a{
+  color: #162938;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover{
+text-decoration: underline;
+}
+
+
+.btn{
+  width:100%;
+  height:45px;
+  color:white;
+  font-size: 1.5em;
+  background: #162938;
+  border: none;
+  outline:none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.login-register{
+  font-size: 1.0em;
+  color: #162938;
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 0 10px;
+}
+
+.login-register p a{
+  color: #162938;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.login-register p a:hover{
+  text-decoration: underline;
+}
+
+</style>
+<body>
+  <script type="text/javascript">
+    function Validator()
+    {
+      var idno=document.getElementById("idno");
+      var name=document.getElementById("name");
+      var email=document.getElementById("email");
+      var pass=document.getElementById("pass");
+      if(notempty(idno,"cannot be null"))
+      {
+        if(isAlphabet(name,"please enter only letters for your name"))
+        {
+          if(lengthRestriction(name,6))
+          {
+            if(emailValidator,(email,"please enter a valid email address"))
+            {
+              if(lengthRestriction(pass,6))
+              {
+                /*if(isAlphanumeric(pass,"please enter numbers and letter only for password"))
+                {*/
+                  return true;
+                //}
+              }
+            }
+         }
+       }
+      return false;
+    }
+    function notempty(elem,helpermsg)
+    {
+      if(elem.value.length==0)
+      {
+        alert(helpermsg);
+        elem.focus();
+        return false;
+      }
+      return true;
+    }
+    function lengthRestriction(elem,min)
+    {
+      var uinput=elem.value;
+      if(uinput.length>=min)
+      {
+        return true;
+      }
+      else
+      {
+        alert("please enter minimum " +min+ " characters");
+        elem.focus();
+        return false;
+      }
+    }
+    function isAlphabet(elem,helpermsg)
+    {
+      var alpha=/^[a-zA-Z]+$/;
+      if(elem.value.match(alpha))
+      {
+      return true;
+      }
+      else
+      {
+        alert(helpermsg);
+        elem.focus();
+        return false;
+      }
+    }
+    function isAlphanumeric(elem,helpermsg)
+    {
+      var alpnum=/^[0-9a-zA-Z]+$/;
+      if(elem.value.match(alpnum))
+      {
+        return true;
+      }
+      else
+      {
+      alert(helpermsg);
+      elem.focus();
+      return false;
+      }
+    }
+    function emailValidator(elem,helpermsg)
+    {
+      var emailexp=/^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-Z0-9]{2,4}$/;
+      if(elem.value.match(emailexp))
+      {
+        return true;
+      }
+      else
+      {
+        alter(helpermsg);
+        elem.focus();
+        return false;
+      }
+    }
+    }
+
+  </script>
+  
+  
+
+
+<center>
+  <div class="wrapper">
+  
+    <div class="form-box login">
+    
+      <h2><b>SIGNUP</b></h2>
+<form action="loginpage.html" onsubmit="return Validator()">
+  <div class="input-box">
+    <span class="icon"><ion-icon name="id-card"></ion-icon></span>
+
+<input type="text" id="idno" required><label>Id</label></div>
+<div class="input-box">
+  <span class="icon"><ion-icon name="person-circle"></ion-icon></span>
+<input type="text" id="name" required><label>Name</label></div>
+<div class="input-box">
+  <span class="icon"><ion-icon name="mail"></ion-icon></span>
+<input type="email"  id="email" required ><label>Email</label></div>
+<div class="input-box">
+  <span class="icon"><ion-icon name="eye-off"></ion-icon></span>
+<input type="password" id="pass" required><label>Password</label></div>
+<div class="input-box">
+  <span class="icon"><ion-icon name=""></ion-icon></span>
+<input type="password" id="pass1" required><label>Confirm-Password</label></div>
+            <button type="submit"  class="btn">SignUp</button>
+            
+      <div class="login-register">
+        <p>Already have an account?<a href="loginpage.html" class="register-link">Login</a></p>
+      </div><br>
+      </form>
+
+</form>  
+</div>
+</div>
+<script src="script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</center>
+</body>
+</html>

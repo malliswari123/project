@@ -1,0 +1,189 @@
+<html lang="en">
+<head>
+  <title>signup</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+body{background-image:url("/home/teja/Downloads/images.wt/login.jpg");
+background-size:cover;
+height:100vh;
+background-position:center;
+}
+h1{color:black}
+input{border-radius:6px}
+img{width:400;
+height:400;
+float:right}
+.navbar{width:100%;
+  height:15px;
+background-color:rgb(193, 232, 245);
+overflow: auto;
+font-size: 50px;}
+.navbar a.nav-link{padding:15px;
+float :right;
+color:rgb(22, 180, 22);
+text-decoration:underline;
+font-family: monospace;
+font-size:25px}
+.navbar a.b{padding:15px;
+color:navy;
+font-size:30px;
+float:left;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+text-decoration:underline}
+.navbar a:hover{color:navy}
+.navbar a.navbar-brand{padding:15px;
+color:navy;
+font-size:30px;
+text-decoration: underline;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;}
+h1#font1{font-size: 40px;}
+h2#nav{color:navy;}
+.two a:hover{color:white}
+.eye-icon{
+  font-size: 18px;
+  
+}
+</style>
+<body>
+  <script type="text/javascript">
+    function Validator()
+    {
+      var idno=document.getElementById("idno");
+      var name=document.getElementById("name");
+      var email=document.getElementById("email");
+      var pass=document.getElementById("pass");
+      if(notempty(idno,"cannot be null"))
+      {
+        if(isAlphabet(name,"please enter only letters for your name"))
+        {
+          if(lengthRestriction(name,6))
+          {
+            if(emailValidator,(email,"please enter a valid email address"))
+            {
+              if(lengthRestriction(pass,6))
+              {
+                /*if(isAlphanumeric(pass,"please enter numbers and letter only for password"))
+                {*/
+                  return true;
+                //}
+              }
+            }
+         }
+       }
+      return false;
+    }
+    function notempty(elem,helpermsg)
+    {
+      if(elem.value.length==0)
+      {
+        alert(helpermsg);
+        elem.focus();
+        return false;
+      }
+      return true;
+    }
+    function lengthRestriction(elem,min)
+    {
+      var uinput=elem.value;
+      if(uinput.length>=min)
+      {
+        return true;
+      }
+      else
+      {
+        alert("please enter minimum " +min+ " characters");
+        elem.focus();
+        return false;
+      }
+    }
+    function isAlphabet(elem,helpermsg)
+    {
+      var alpha=/^[a-zA-Z]+$/;
+      if(elem.value.match(alpha))
+      {
+      return true;
+      }
+      else
+      {
+        alert(helpermsg);
+        elem.focus();
+        return false;
+      }
+    }
+    function isAlphanumeric(elem,helpermsg)
+    {
+      var alpnum=/^[0-9a-zA-Z]+$/;
+      if(elem.value.match(alpnum))
+      {
+        return true;
+      }
+      else
+      {
+      alert(helpermsg);
+      elem.focus();
+      return false;
+      }
+    }
+    function emailValidator(elem,helpermsg)
+    {
+      var emailexp=/^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-Z0-9]{2,4}$/;
+      if(elem.value.match(emailexp))
+      {
+        return true;
+      }
+      else
+      {
+        alter(helpermsg);
+        elem.focus();
+        return false;
+      }
+    }
+    }
+
+
+  </script>
+  <div class="navbar">
+    <nav class="navbar bg-success  fs-5 ">
+    <div class="container-fluid">
+    <div class="navbar-header">
+    <a class="navbar-brand" href="projectnav.html"><i class="fa fa-fw fa-home"></i>Home</a>
+    </div>
+    <ul class="nav navbar-nav">
+    <li><a class="b" href="medical.html"><i class="fa fa-medkit"></i>Medical Portal</a></li>
+    <li><a class="b" href="newdoct.html"><i class="fa fa-stethoscope"></i>Availability of Doctors</a></li>
+    <li><a class="b" href="#"><i class="fa fa-address-book"></i>About</h2></a></li>
+    </ul>
+    <ul>
+    <a class="nav-link" href="projectsignin.html" aria-current="page"><span class="glyphicon glyphicon-pencil"></span>SIGNUP</a>
+    <a class="nav-link" href="projectloginpage.html"><i class="fa fa-fw fa-user"></i>LOGIN</a>
+    </ul>
+    </div>
+    </nav>
+    </div>
+  
+<div class="container">
+
+<center>
+  <div class="two">
+<h1>
+<b>SIGN UP</b></h1>
+<br>
+<form action="projectloginpage.html" onsubmit="return Validator()">
+<b>Id &emsp;&emsp;&nbsp;&emsp;&ensp;&emsp;&nbsp;&nbsp;:&emsp;&nbsp;</b><input type="text" placeholder="Enter your ID" size="45" id="idno"><br><br>
+<b> Name &emsp;&emsp;&emsp;&ensp;:&emsp;&nbsp;</b><input type="text" placeholder="Enter min 6 characters" size="45" id="name"><br><br>
+<b>Email&emsp;&emsp;&ensp;&emsp;&nbsp;:&emsp;&nbsp;</b><input type="email" placeholder="Enter valid email" size="45" id="email"><br><br>
+<b>Password&emsp;&ensp;:&emsp;&nbsp;&nbsp;</b><input type="password" placeholder="Enter Password" size="45" id="pass"><i class="bx-bx-hide eye-icon"></i><br><br>
+               &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;&nbsp;<input type="password" placeholder="Confirm-password" size="45"><br><br>
+              &emsp;&emsp;&emsp;&emsp;<button type="submit"  class="btn btn-success">&emsp;&emsp;&emsp;SignUp&emsp;&emsp;&emsp;</button>
+
+</form>  
+</center></div>
+</div>
+</body>
+</html>
